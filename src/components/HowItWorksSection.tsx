@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
-import { ClipboardList, MessageSquare, Home, CheckCircle } from "lucide-react";
-import { LOCATION } from "@/lib/config";
+import { Search, Shield, Wind, Brush, Droplets, Sparkles, Clock } from "lucide-react";
 
 const steps = [
-  { icon: ClipboardList, title: "Solicite seu Orçamento", desc: "Clique no botão e preencha o formulário rápido." },
-  { icon: MessageSquare, title: "Fale com a Equipe", desc: "Você será redirecionado para nosso WhatsApp." },
-  { icon: Home, title: `Receba em ${LOCATION.name}`, desc: "Vamos até sua casa no dia e horário combinados." },
-  { icon: CheckCircle, title: "Sofá Renovado", desc: "Aproveite seu sofá limpo, sem manchas e sem odores." },
+  { icon: Search, num: 1, title: "Identificação", desc: "Análise do tecido e das sujidades para escolher o tratamento adequado." },
+  { icon: Shield, num: 2, title: "Preparação", desc: "Preparação e proteção do ambiente ao redor do sofá." },
+  { icon: Wind, num: 3, title: "Aspiração", desc: "Aspiração profunda para retirada de sólidos, poeira e partículas." },
+  { icon: Brush, num: 4, title: "Aplicação e Esfregação", desc: "Aplicação de produto com esfregação em escovas de cerdas macias para proteção das fibras." },
+  { icon: Droplets, num: 5, title: "Enxágue e Extração", desc: "Enxágue e sucção com extratora para remoção de todos os resíduos." },
+  { icon: Sparkles, num: 6, title: "Finalização", desc: "Aplicação de produto neutralizador e finalizador para proteção do tecido." },
+  { icon: Clock, num: 7, title: "Secagem", desc: "Aguardar o tempo de secagem. Pronto! Seu sofá está renovado." },
 ];
 
 interface HowItWorksSectionProps {
@@ -14,40 +16,46 @@ interface HowItWorksSectionProps {
 }
 
 const HowItWorksSection = ({ onCTA }: HowItWorksSectionProps) => (
-  <section className="py-16 sm:py-24">
+  <section className="py-10 sm:py-14">
     <div className="section-container section-padding">
       <motion.div
-        className="mx-auto mb-12 max-w-2xl text-center"
+        className="mx-auto mb-8 max-w-2xl text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <h2 className="mb-4 text-foreground">Como Funciona</h2>
+        <h2 className="mb-3 text-foreground">Como Funciona a Higienização</h2>
         <p className="mx-auto text-muted-foreground">
-          Em 4 passos simples, seu sofá fica como novo.
+          Conheça o passo a passo do nosso processo profissional de higienização de sofá.
         </p>
       </motion.div>
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        {steps.map((s, i) => (
-          <motion.div
-            key={s.title}
-            className="relative flex flex-col items-center text-center"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ type: "spring", duration: 0.4, bounce: 0, delay: i * 0.08 }}
-          >
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-primary-foreground text-xl font-bold">
-              {i + 1}
-            </div>
-            <s.icon className="mb-3 h-6 w-6 text-primary" />
-            <h3 className="mb-2 text-foreground">{s.title}</h3>
-            <p className="text-sm text-muted-foreground">{s.desc}</p>
-          </motion.div>
-        ))}
+      <div className="mx-auto max-w-4xl">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {steps.map((s, i) => (
+            <motion.div
+              key={s.num}
+              className="relative flex items-start gap-4 rounded-2xl bg-card p-5 shadow-card"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ type: "spring", duration: 0.4, bounce: 0, delay: i * 0.06 }}
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-bold">
+                {s.num}
+              </div>
+              <div>
+                <div className="mb-1 flex items-center gap-2">
+                  <s.icon className="h-4 w-4 text-primary" />
+                  <h3 className="text-base font-semibold text-foreground">{s.title}</h3>
+                </div>
+                <p className="text-sm text-muted-foreground">{s.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
       <motion.div
-        className="mt-12 text-center"
+        className="mt-8 text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}

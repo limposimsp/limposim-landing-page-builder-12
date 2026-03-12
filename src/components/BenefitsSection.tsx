@@ -11,33 +11,33 @@ const benefits = [
 ];
 
 const BenefitsSection = () => (
-  <section className="bg-secondary py-16 sm:py-24">
+  <section className="bg-section-green-light py-10 sm:py-14">
     <div className="section-container section-padding">
       <motion.div
-        className="mx-auto mb-12 max-w-2xl text-center"
+        className="mx-auto mb-8 max-w-2xl text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <h2 className="mb-4 text-foreground">Por Que Higienizar Seu Sofá?</h2>
+        <h2 className="mb-3 text-foreground">Por Que Higienizar Seu Sofá?</h2>
         <p className="mx-auto text-muted-foreground">
           A higienização profissional vai além da limpeza superficial. Confira os benefícios:
         </p>
       </motion.div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {benefits.map((b, i) => (
           <motion.div
             key={b.title}
-            className="rounded-2xl bg-card p-6 shadow-card transition-shadow duration-200 hover:shadow-card-hover"
+            className="rounded-2xl bg-card p-5 shadow-card transition-shadow duration-200 hover:shadow-card-hover"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ type: "spring", duration: 0.4, bounce: 0, delay: i * 0.06 }}
           >
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
-              <b.icon className="h-6 w-6 text-primary" />
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+              <b.icon className="h-5 w-5 text-primary" />
             </div>
-            <h3 className="mb-2 text-foreground">{b.title}</h3>
+            <h3 className="mb-1 text-foreground">{b.title}</h3>
             <p className="text-sm text-muted-foreground">{b.desc}</p>
           </motion.div>
         ))}

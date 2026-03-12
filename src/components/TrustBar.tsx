@@ -3,15 +3,15 @@ import { Home, Clock, MapPin, Wrench, Sparkles } from "lucide-react";
 import { LOCATION } from "@/lib/config";
 
 const items = [
-  { icon: Home, label: "Atendimento em Domicílio" },
-  { icon: Clock, label: "Orçamento Rápido" },
-  { icon: MapPin, label: `Atendemos ${LOCATION.name}` },
-  { icon: Wrench, label: "Serviço Profissional" },
-  { icon: Sparkles, label: "Praticidade para Sua Rotina" },
+  { icon: Home, label: "Atendimento em Domicílio", desc: "Vamos até sua residência para execução do serviço" },
+  { icon: Clock, label: "Orçamento Rápido", desc: "Orçamento pelo WhatsApp em poucos minutos" },
+  { icon: MapPin, label: `Atendemos ${LOCATION.name}`, desc: `Atendemos no bairro de ${LOCATION.name} e região` },
+  { icon: Wrench, label: "Serviço Profissional", desc: "Equipamentos profissionais e produtos certificados" },
+  { icon: Sparkles, label: "Praticidade", desc: "Agenda flexível para não atrapalhar sua rotina" },
 ];
 
 const TrustBar = () => (
-  <section className="border-y border-border bg-secondary py-8">
+  <section className="border-y border-border bg-section-green-light py-6 sm:py-8">
     <div className="section-container section-padding">
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 lg:gap-6">
         {items.map((item, i) => (
@@ -27,6 +27,7 @@ const TrustBar = () => (
               <item.icon className="h-6 w-6 text-primary" />
             </div>
             <span className="text-sm font-medium text-foreground">{item.label}</span>
+            <span className="text-xs text-muted-foreground leading-tight">{item.desc}</span>
           </motion.div>
         ))}
       </div>

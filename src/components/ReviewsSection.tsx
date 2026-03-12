@@ -11,15 +11,15 @@ const reviews = [
 ];
 
 const ReviewsSection = () => (
-  <section className="bg-secondary py-16 sm:py-24">
+  <section className="bg-section-green-light py-10 sm:py-14">
     <div className="section-container section-padding">
       <motion.div
-        className="mx-auto mb-12 max-w-2xl text-center"
+        className="mx-auto mb-8 max-w-2xl text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <h2 className="mb-4 text-foreground">O Que Nossos Clientes Dizem</h2>
+        <h2 className="mb-3 text-foreground">O Que Nossos Clientes Dizem</h2>
         <div className="mx-auto flex items-center justify-center gap-1 mb-2">
           {[...Array(5)].map((_, i) => (
             <Star key={i} className="h-6 w-6 fill-yellow-400 text-yellow-400" />
@@ -27,22 +27,22 @@ const ReviewsSection = () => (
         </div>
         <p className="text-muted-foreground">Avaliações reais de clientes atendidos</p>
       </motion.div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {reviews.map((r, i) => (
           <motion.div
             key={r.name}
-            className="rounded-2xl bg-card p-6 shadow-card transition-shadow duration-200 hover:shadow-card-hover"
+            className="rounded-2xl bg-card p-5 shadow-card transition-shadow duration-200 hover:shadow-card-hover"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ type: "spring", duration: 0.4, bounce: 0, delay: i * 0.06 }}
           >
-            <div className="mb-3 flex gap-0.5">
+            <div className="mb-2 flex gap-0.5">
               {[...Array(r.rating)].map((_, j) => (
                 <Star key={j} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
-            <p className="mb-4 text-sm text-foreground leading-relaxed">"{r.text}"</p>
+            <p className="mb-3 text-sm text-foreground leading-relaxed">"{r.text}"</p>
             <p className="text-sm font-medium text-muted-foreground">{r.name}</p>
           </motion.div>
         ))}

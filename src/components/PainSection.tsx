@@ -11,7 +11,7 @@ const pains = [
 ];
 
 const PainSection = () => (
-  <section className="py-16 sm:py-24">
+  <section className="py-10 sm:py-14">
     <div className="section-container section-padding">
       <motion.div
         className="mx-auto max-w-2xl text-center"
@@ -19,17 +19,17 @@ const PainSection = () => (
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <h2 className="mb-4 text-foreground">Você Reconhece Alguma Dessas Situações?</h2>
-        <p className="mx-auto mb-10 text-muted-foreground">
+        <h2 className="mb-3 text-foreground">Você Reconhece Alguma Dessas Situações?</h2>
+        <p className="mx-auto mb-8 text-muted-foreground">
           O uso diário do sofá acumula sujeira, ácaros e odores que afetam seu conforto e a
           aparência da sua casa.
         </p>
       </motion.div>
-      <div className="mx-auto grid max-w-3xl gap-4 sm:grid-cols-2">
+      <div className="mx-auto grid max-w-3xl gap-3 sm:grid-cols-2">
         {pains.map((pain, i) => (
           <motion.div
             key={pain}
-            className="flex items-start gap-3 rounded-2xl bg-card p-5 shadow-card transition-shadow duration-200 hover:shadow-card-hover"
+            className="flex items-start gap-3 rounded-2xl bg-card p-4 shadow-card transition-shadow duration-200 hover:shadow-card-hover"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
