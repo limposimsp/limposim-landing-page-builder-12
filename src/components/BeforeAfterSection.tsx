@@ -13,20 +13,20 @@ const pairs = [
 ];
 
 const BeforeAfterSection = () => (
-  <section className="bg-secondary py-16 sm:py-24">
+  <section className="bg-section-green-light py-10 sm:py-14">
     <div className="section-container section-padding">
       <motion.div
-        className="mx-auto mb-12 max-w-2xl text-center"
+        className="mx-auto mb-8 max-w-2xl text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <h2 className="mb-4 text-foreground">Resultados Reais</h2>
+        <h2 className="mb-3 text-foreground">Resultados Reais</h2>
         <p className="mx-auto text-muted-foreground">
           Veja a diferença que a higienização profissional faz. Fotos reais dos nossos atendimentos.
         </p>
       </motion.div>
-      <div className="grid gap-10">
+      <div className="grid gap-8">
         {pairs.map((pair, i) => (
           <motion.div
             key={pair.alt}
@@ -54,7 +54,7 @@ const BeforeAfterSection = () => (
                 className="aspect-[4/3] w-full object-cover"
                 loading="lazy"
               />
-              <span className="absolute left-3 top-3 rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase text-accent-foreground">
+              <span className="absolute left-3 top-3 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase text-primary-foreground">
                 Depois
               </span>
             </div>

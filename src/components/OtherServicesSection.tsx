@@ -12,32 +12,32 @@ interface OtherServicesSectionProps {
 }
 
 const OtherServicesSection = ({ onCTA }: OtherServicesSectionProps) => (
-  <section className="border-t border-border bg-secondary py-16 sm:py-24">
+  <section className="bg-section-green-light py-10 sm:py-14">
     <div className="section-container section-padding">
       <motion.div
-        className="mx-auto mb-12 max-w-2xl text-center"
+        className="mx-auto mb-8 max-w-2xl text-center"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
       >
-        <h2 className="mb-4 text-foreground">Outros Serviços</h2>
+        <h2 className="mb-3 text-foreground">Outros Serviços</h2>
         <p className="mx-auto text-muted-foreground">
           Além de sofás, também higienizamos outros estofados com o mesmo cuidado profissional.
         </p>
       </motion.div>
-      <div className="grid gap-6 sm:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-3">
         {services.map((s, i) => (
           <motion.div
             key={s.title}
-            className="cursor-pointer rounded-2xl bg-card p-6 shadow-card transition-shadow duration-200 hover:shadow-card-hover"
+            className="cursor-pointer rounded-2xl bg-card p-5 shadow-card transition-shadow duration-200 hover:shadow-card-hover"
             onClick={onCTA}
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ type: "spring", duration: 0.4, bounce: 0, delay: i * 0.08 }}
           >
-            <s.icon className="mb-4 h-8 w-8 text-primary" />
-            <h3 className="mb-2 text-foreground">{s.title}</h3>
+            <s.icon className="mb-3 h-8 w-8 text-primary" />
+            <h3 className="mb-1 text-foreground">{s.title}</h3>
             <p className="text-sm text-muted-foreground">{s.desc}</p>
           </motion.div>
         ))}

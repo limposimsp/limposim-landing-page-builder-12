@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
+    --background: 0 0% 100%;
     --foreground: 215 25% 25%;
 
     --card: 0 0% 100%;
@@ -15,16 +15,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 25%;
 
-    --primary: 220 80% 55%;
+    --primary: 142 64% 40%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 20% 95%;
+    --secondary: 140 30% 96%;
     --secondary-foreground: 215 25% 25%;
 
     --muted: 210 20% 95%;
     --muted-foreground: 215 15% 55%;
 
-    --accent: 140 70% 45%;
+    --accent: 142 64% 40%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,14 +32,17 @@
 
     --border: 215 20% 90%;
     --input: 215 20% 90%;
-    --ring: 220 80% 75%;
+    --ring: 142 64% 60%;
 
     --radius: 0.5rem;
 
     --shadow-card: 0 0 0 1px hsl(var(--border)), 0 2px 4px -2px rgba(0,0,0,.04), 0 4px 8px -2px rgba(0,0,0,.04);
     --shadow-card-hover: 0 0 0 1px hsl(var(--border)), 0 4px 8px -4px rgba(0,0,0,.05), 0 10px 20px -5px rgba(0,0,0,.05);
-    --shadow-cta: 0 0 0 1px rgba(0,0,0,0), 0 4px 8px -2px rgba(30,80,200,.2), 0 8px 16px -4px rgba(30,80,200,.2);
-    --shadow-cta-hover: 0 0 0 1px rgba(0,0,0,0), 0 6px 12px -2px rgba(30,80,200,.3), 0 12px 24px -4px rgba(30,80,200,.3);
+    --shadow-cta: 0 4px 8px -2px rgba(34,120,60,.25), 0 8px 16px -4px rgba(34,120,60,.2);
+    --shadow-cta-hover: 0 6px 12px -2px rgba(34,120,60,.35), 0 12px 24px -4px rgba(34,120,60,.3);
+
+    --section-green-light: 140 40% 95%;
+    --section-green-medium: 142 40% 90%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -98,5 +101,13 @@
 
   .section-container {
     @apply max-w-7xl mx-auto;
+  }
+
+  .bg-section-green-light {
+    background-color: hsl(var(--section-green-light));
+  }
+
+  .bg-section-green-medium {
+    background-color: hsl(var(--section-green-medium));
   }
 }
