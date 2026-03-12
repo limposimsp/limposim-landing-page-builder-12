@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, MapPin } from "lucide-react";
+import { Shield, MapPin, Phone } from "lucide-react";
 import heroImg from "@/assets/hero-cleaning.png";
 import { LOCATION } from "@/lib/config";
 
@@ -97,5 +97,3 @@ const HeroSection = ({ onCTA }: HeroSectionProps) => (
 );
 
 export default HeroSection;
-
-import { Phone } from "lucide-react";
