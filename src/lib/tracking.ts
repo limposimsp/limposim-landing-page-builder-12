@@ -11,8 +11,12 @@ const TRACKED_PARAMS = [
   "gbraid",
   "wbraid",
   "fbclid",
+  "fbc",
+  "fbp",
   "msclkid",
   "ttclid",
+  "li_fat_id",
+  "twclid",
 ] as const;
 
 type TrackedParam = (typeof TRACKED_PARAMS)[number];
