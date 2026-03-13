@@ -2,6 +2,11 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, CheckCircle } from "lucide-react";
 import { LOCATION } from "@/lib/config";
+import {
+  fireGoogleAdsConversion,
+  pushDataLayerEvent,
+  sendLeadToWebhook,
+} from "@/lib/tracking";
 
 interface QuoteModalProps {
   isOpen: boolean;
@@ -26,13 +31,44 @@ const QuoteModal = ({ isOpen, onClose }: QuoteModalProps) => {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
+
+    pushDataLayerEvent("form_submit", {
+      lead_name: name,
+      lead_phone: phone,
+      lead_email: email || undefined,
+      location: LOCATION.name,
+    });
+
+    fireGoogleAdsConversion();
+
+    await sendLeadToWebhook({
+      name,
+      phone,
+      email,
+      source: "form_submit",
+    });
+
     setSubmitted(true);
   };
 
-  const openWhatsApp = () => {
+  const openWhatsApp = async () => {
+    pushDataLayerEvent("whatsapp_click", {
+      lead_name: name,
+      lead_phone: phone,
+      lead_email: email || undefined,
+      location: LOCATION.name,
+    });
+
+    await sendLeadToWebhook({
+      name,
+      phone,
+      email,
+      source: "whatsapp_click",
+    });
+
     window.open(LOCATION.whatsappLink(name, phone), "_blank");
     onClose();
     setTimeout(() => {
